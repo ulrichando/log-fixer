@@ -1,0 +1,135 @@
+[
+    {
+    "pattern": "Power supply failure",
+    "category": "hardware",
+    "issue_type": "Power Supply Fault",
+    "default_fix": "Replace the failed PSU module and verify power redundancy.",
+    "steps": [
+    "Check chassis LEDs and management interface for PSU error codes.",
+    "Hot-swap the faulty PSU with a known-good unit.",
+    "Verify input power cables and upstream PDUs.",
+    "Confirm both primary and backup PSUs show normal status."
+    ]
+    },
+    {
+    "pattern": "Fan speed low",
+    "category": "hardware",
+    "issue_type": "Cooling Fan Degradation",
+    "default_fix": "Replace or clean the faulty fan to restore airflow.",
+    "steps": [
+    "Identify affected fan from management logs or LEDs.",
+    "Power down the server if required and remove the fan tray.",
+    "Clean dust from fan blades and airflow vents.",
+    "Replace fan unit if RPM remains below threshold.",
+    "Reboot and confirm normal fan speeds."
+    ]
+    },
+    {
+    "pattern": "Temperature sensor error",
+    "category": "hardware",
+    "issue_type": "Thermal Sensor Fault",
+    "default_fix": "Reseat or replace the sensor assembly.",
+    "steps": [
+    "Locate faulty sensor via management interface (IPMI or BMC).",
+    "Reseat the sensor harness on the motherboard.",
+    "Replace sensor module if error persists.",
+    "Monitor temperatures post-fix to ensure normal readings."
+    ]
+    },
+    {
+    "pattern": "SFP link down",
+    "category": "network",
+    "issue_type": "Optical Link Failure",
+    "default_fix": "Inspect fiber connections and replace bad SFP modules.",
+    "steps": [
+    "Verify both ends of the fiber link are correctly seated.",
+    "Swap in a known-good SFP transceiver.",
+    "Test fiber continuity with a VFL or OTDR.",
+    "Confirm link comes up at expected speed and duplex."
+    ]
+    },
+    {
+    "pattern": "CRC error",
+    "category": "network",
+    "issue_type": "Network Packet Corruption",
+    "default_fix": "Replace faulty cables or NIC ports.",
+    "steps": [
+    "Identify affected interface from switch logs.",
+    "Replace RJ45 or fiber cable with a certified cable.",
+    "Test interface with loopback or cable tester.",
+    "Verify CRC counters reset to zero."
+    ]
+    },
+    {
+    "pattern": "port flapping",
+    "category": "network",
+    "issue_type": "Link Instability",
+    "default_fix": "Stabilize physical connection and adjust spanning-tree.",
+    "steps": [
+    "Check for duplex/speed mismatches (show interfaces status).",
+    "Replace suspect patch cables or patch panel ports.",
+    "Review spanning-tree config; enable BPDU guard if necessary.",
+    "Confirm port remains up without flapping."
+    ]
+    },
+    {
+    "pattern": "RAID degraded",
+    "category": "storage",
+    "issue_type": "RAID Array Degradation",
+    "default_fix": "Replace failed drive and rebuild the array.",
+    "steps": [
+    "Identify failed disk via RAID controller logs.",
+    "Hot-swap the failed disk with a compatible replacement.",
+    "Monitor rebuild progress in RAID management tool.",
+    "Verify array status returns to optimal upon completion."
+    ]
+    },
+    {
+    "pattern": "SMART error",
+    "category": "storage",
+    "issue_type": "Disk Health Alert",
+    "default_fix": "Replace the failing disk before data loss.",
+    "steps": [
+    "Run smartctl -a /dev/sdX to view failure details.",
+    "Backup critical data from the disk immediately.",
+    "Schedule replacement of the affected disk.",
+    "Verify new disk passes SMART self-test."
+    ]
+    },
+    {
+    "pattern": "disk I/O error",
+    "category": "storage",
+    "issue_type": "I/O Subsystem Failure",
+    "default_fix": "Check cabling, controllers, and replace faulty components.",
+    "steps": [
+    "Review dmesg for I/O error messages and device paths.",
+    "Reseat or replace data and power cables.",
+    "Test controller ports by moving to a different slot.",
+    "Consider replacing the RAID controller if errors persist."
+    ]
+    },
+    {
+    "pattern": "service hung",
+    "category": "software",
+    "issue_type": "Software Service Hang",
+    "default_fix": "Restart or update the stuck service.",
+    "steps": [
+    "Identify hung process via ps or systemctl status.",
+    "Restart the service (systemctl restart <service>).",
+    "Review service logs for root-cause exceptions.",
+    "Patch or update software version if bug confirmed."
+    ]
+    },
+    {
+    "pattern": "kernel panic",
+    "category": "software",
+    "issue_type": "Kernel Panic",
+    "default_fix": "Diagnose logs and test hardware reliability.",
+    "steps": [
+    "Examine crash dump via kdump or crash.",
+    "Check for recent kernel or driver updates.",
+    "Run memtest and disk diagnostics for hardware issues.",
+    "Revert or update problematic kernel modules."
+    ]
+    }
+    ]

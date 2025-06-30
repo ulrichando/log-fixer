@@ -1,0 +1,14 @@
+{
+  "Connection refused": [
+    "1. Verify host/IP is correct.",
+    "2. Ping the host.",
+    "3. Check firewalls.",
+    "4. Ensure service listens on port."
+  ],
+  "MemoryError": [
+    "1. Check memory usage (free/top).",
+    "2. Stop non-critical processes.",
+    "3. Add/increase swap.",
+    "4. Provision more RAM."
+  ]
+}
